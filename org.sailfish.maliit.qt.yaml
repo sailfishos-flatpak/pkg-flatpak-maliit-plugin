@@ -1,0 +1,17 @@
+id: org.sailfish.maliit.qt
+runtime: org.kde.Platform
+runtime-version: "RUNTIMEVERSION"
+sdk: org.kde.Sdk
+
+modules:
+  - name: maliit-framework-plugin
+    buildsystem: simple
+    build-commands:
+      - cmake -Denable-docs=OFF -Denable-tests=OFF -Denable-glib=off -Denable-xcb=ON -Denable-wayland=OFF -Denable-wayland-gtk=OFF -Denable-qt5-inputcontext=ON -Denable-hwkeyboard=OFF
+      - make maliitplatforminputcontextplugin
+      - install -D -t /app/lib/plugins/platforminputcontexts libmaliitplatforminputcontextplugin.so
+    sources:
+      - type: git
+        url: https://github.com/sailfishos-flatpak/maliit-framework.git
+        branch: flatpak
+  

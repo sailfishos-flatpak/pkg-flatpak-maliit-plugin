@@ -1,0 +1,6 @@
+*~
+*.tgz
+extension/
+flatpak-build/
+flatpak-repo/
+.flatpak-builder/
